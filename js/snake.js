@@ -107,6 +107,7 @@ function Snake() {
     }
     return false;
   };
+  
 
   this.checkCollision = function () {
     for (let i = 0; i < this.tail.length; i++) {
