@@ -94,22 +94,26 @@
 <div class="w3-content" style="max-width:1600px; position: relative; flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;">
     <!-- Main header -->
      <header class="w3-display-container w3-wide" style="position: relative;">
-        <img src="assets/img/playground.jpg" alt="playground" class="responsive-img">
         <div class="overlay-text">
             <h1 class="w3-text-black"><b>건우의 놀이터</b></h1>
         </div>
     </header>
 </div>
 
-<div class="game-container">
-    <h1>스네이크 게임</h1>
-    <canvas id="game-board" width="400" height="400"></canvas>
-    <div class="buttons">
-        <button id="start-btn">시작</button>
-        <button id="stop-btn">정지</button>
+<!-- Content section -->
+    <div class="w3-padding-64 w3-center" id="Home">
+        <div class="game-container">
+            <h1>스네이크 게임</h1>
+            <canvas id="game-board" width="400" height="400"></canvas>
+        <div class="buttons">
+            <button id="start-btn">시작</button>
+            <button id="stop-btn">정지</button>
+        </div>
+        <p class="score">점수: <span id="score">0</span></p>
+        </div>
     </div>
-    <p class="score">점수: <span id="score">0</span></p>
-</div>
+    
+
 
 
 
