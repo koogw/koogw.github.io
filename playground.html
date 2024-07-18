@@ -24,8 +24,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
         }
         .overlay-text {
             position: absolute;
@@ -48,6 +46,7 @@
         }
         .game-container {
             text-align: center;
+            margin-top: 20px;
         }
         @media (max-width: 600px) {
             html {
@@ -65,33 +64,10 @@
 <body>
 
 <!-- Include header using JavaScript -->
-<div id="header"></div>
-<body>
-     <div data-include-path="header.html"></div>
- 
-    <script>
- 
-        window.addEventListener('load', function() {
-            var allElements = document.getElementsByTagName('*');
-            Array.prototype.forEach.call(allElements, function(el) {
-                var includePath = el.dataset.includePath;
-                if (includePath) {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            el.outerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open('GET', includePath, true);
-                    xhttp.send();
-                }
-            });
-        });
- 
-    </script>
-</body>
+<div id="header" data-include-path="header.html"></div>
+
 <!-- Main content -->
-<div class="w3-content" style="max-width:1600px">
+<div class="w3-content" style="max-width:1600px; width: 100%;">
 
     <!-- Main header -->
     <header class="w3-display-container w3-wide" style="position: relative;">
@@ -105,16 +81,34 @@
         <div class="game-container">
             <h1>스네이크 게임</h1>
             <canvas id="game-board" width="400" height="400"></canvas>
-        <div class="buttons">
-            <button id="start-btn">시작</button>
-            <button id="stop-btn">정지</button>
-        </div>
-        <p class="score">점수: <span id="score">0</span></p>
+            <div class="buttons">
+                <button id="start-btn">시작</button>
+                <button id="stop-btn">정지</button>
+            </div>
+            <p class="score">점수: <span id="score">0</span></p>
         </div>
     </div>
 
 </div>
 
+<script>
+    window.addEventListener('load', function() {
+        var allElements = document.getElementsByTagName('*');
+        Array.prototype.forEach.call(allElements, function(el) {
+            var includePath = el.dataset.includePath;
+            if (includePath) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        el.outerHTML = this.responseText;
+                    }
+                };
+                xhttp.open('GET', includePath, true);
+                xhttp.send();
+            }
+        });
+    });
+</script>
 
 <script src="js/snake.js"></script>
 
