@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>건우의 놀이터 - 게시</title>
+    <title>KooPlayground - 게시판</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -41,4 +41,45 @@
         }
         @media (max-width: 600px) {
             html {
-                font-size: 4vw; /* 화면 너비가 600px 이하일 때 폰트 크기를 4
+                font-size: 4vw; /* 화면 너비가 600px 이하일 때 폰트 크기를 4vw로 설정 */
+            }
+            .overlay-text {
+                font-size: 6vw; /* 작은 화면에서 이미지 오버레이 텍스트의 폰트 크기 조정 */
+            }
+            .w3-bar-item {
+                font-size: 3vw; /* 작은 화면에서 내비게이션 바 항목의 폰트 크기 조정 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Include header using JavaScript -->
+<div id="header"></div>
+<script>
+    // JavaScript를 사용하여 header.html 파일을 포함시킵니다.
+    document.getElementById("header").innerHTML =
+        '<object type="text/html" data="header.html"></object>';
+</script>
+
+<!-- Main content -->
+<div class="w3-content" style="max-width:1600px">
+
+    <!-- Main header -->
+    <header class="w3-display-container w3-wide" style="position: relative;">
+        <img src="img/post.jpg" alt="post" class="responsive-img">
+        <div class="overlay-text">
+            <h1 class="w3-text-black"><b>게시판</b></h1>
+        </div>
+    </header>
+
+    <!-- Content section -->
+    <div class="w3-padding-64 w3-center" id="Post">
+        <h2>게시판</h2>
+        <p>여기는 게시판입니다. 다양한 글을 작성하고 읽을 수 있습니다.</p>
+    </div>
+
+</div>
+
+</body>
+</html>
