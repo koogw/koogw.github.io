@@ -11,18 +11,21 @@
     <style>
         html {
             scroll-behavior: smooth;
+            font-size: 2vw; /* 기본 폰트 크기를 뷰포트 너비의 2%로 설정 */
         }
         h1, h2, h3, h4, h5, h6 {
             font-family: "Roboto";
         }
         body {
             font-family: "Source Sans Pro";
+            font-size: 1rem; /* 기본 폰트 크기를 1rem으로 설정 */
         }
         .overlay-text {
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 2vw;
+            left: 2vw;
             color: black;
+            font-size: 4vw; /* 이미지 오버레이 텍스트의 폰트 크기를 뷰포트 너비의 4%로 설정 */
         }
         .responsive-img {
             width: 100%;
@@ -30,10 +33,22 @@
         }
         .w3-bar-item {
             text-align: center;
+            font-size: 1.5vw; /* 내비게이션 바 항목의 폰트 크기를 뷰포트 너비의 1.5%로 설정 */
         }
         .w3-bar-item a {
             display: block;
             width: 100%;
+        }
+        @media (max-width: 600px) {
+            html {
+                font-size: 4vw; /* 화면 너비가 600px 이하일 때 폰트 크기를 4vw로 설정 */
+            }
+            .overlay-text {
+                font-size: 6vw; /* 작은 화면에서 이미지 오버레이 텍스트의 폰트 크기 조정 */
+            }
+            .w3-bar-item {
+                font-size: 3vw; /* 작은 화면에서 내비게이션 바 항목의 폰트 크기 조정 */
+            }
         }
     </style>
 </head>
