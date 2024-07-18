@@ -54,22 +54,32 @@
 </head>
 <body>
 
-<!-- Include header -->
-<div w3-include-html="header.html"></div>
+<!-- Include header using JavaScript -->
+<div id="header"></div>
+<script>
+    // JavaScript를 사용하여 header.html 파일을 포함시킵니다.
+    document.getElementById("header").innerHTML =
+        '<object type="text/html" data="header.html"></object>';
+</script>
 
-<!-- w3-content defines a container for fixed size centered content, 
-and is wrapped around the whole page content, except for the footer in this example -->
+<!-- Main content -->
 <div class="w3-content" style="max-width:1600px">
 
-    <!-- main header -->
-    <header class="w3-display-container w3-wide" style="position: relative;" id="Home">
-        <img src="assets/img/playground.jpg" alt="playground" class="responsive-img">
+    <!-- Main header -->
+    <header class="w3-display-container w3-wide" style="position: relative;">
+        <img src="img/playground.jpg" alt="playground" class="responsive-img">
         <div class="overlay-text">
             <h1 class="w3-text-black"><b>건우의 놀이터</b></h1>
         </div>
     </header>
 
-    <!-- Main content -->
-    <div class="w3-padding-64 w3-center" id="Playground">
-        <h2>놀이터</h2>
-       
+    <!-- Content section -->
+    <div class="w3-padding-64 w3-center" id="Home">
+        <h2>메인페이지</h2>
+        <p>이곳은 건우의 놀이터 메인페이지입니다. 다양한 놀이와 활동을 즐길 수 있습니다.</p>
+    </div>
+
+</div>
+
+</body>
+</html>
