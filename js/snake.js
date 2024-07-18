@@ -13,21 +13,50 @@ let snake;
 
   fruit.pickLocation();
 
-  window.setInterval(() => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    fruit.draw();
-    snake.update();
-    snake.draw();
+  // window.setInterval(() => {
+  //   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  //   fruit.draw();
+  //   snake.update();
+  //   snake.draw();
 
-    if (snake.eat(fruit)) {
-      score++;
-      document.getElementById("score").textContent = score;
-      fruit.pickLocation();
-    }
+  //   if (snake.eat(fruit)) {
+  //     score++;
+  //     document.getElementById("score").textContent = score;
+  //     fruit.pickLocation();
+  //   }
 
-    snake.checkCollision();
-  }, 250);
+  //   snake.checkCollision();
+  // }, 250);
 }());
+
+let gameInterval;
+
+function startGame() {
+  if (!gameInterval) {
+    gameInterval = setInterval(() => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      fruit.draw();
+      snake.update();
+      snake.draw();
+
+      if (snake.eat(fruit)) {
+        score++;
+        document.getElementById("score").textContent = score;
+        fruit.pickLocation();
+      }
+
+      snake.checkCollision();
+    }, 250);
+  }
+}
+
+function stopGame() {
+  clearInterval(gameInterval);
+  gameInterval = null;
+}
+
+document.getElementById("start-btn").addEventListener("click", startGame);
+document.getElementById("stop-btn").addEventListener("click", stopGame);
 
 function Snake() {
   this.x = 0;
