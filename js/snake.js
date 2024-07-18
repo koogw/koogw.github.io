@@ -13,20 +13,6 @@ let snake;
 
   fruit.pickLocation();
 
-  // window.setInterval(() => {
-  //   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  //   fruit.draw();
-  //   snake.update();
-  //   snake.draw();
-
-  //   if (snake.eat(fruit)) {
-  //     score++;
-  //     document.getElementById("score").textContent = score;
-  //     fruit.pickLocation();
-  //   }
-
-  //   snake.checkCollision();
-  // }, 250);
 }());
 
 let gameInterval;
@@ -57,6 +43,12 @@ function stopGame() {
 
 document.getElementById("start-btn").addEventListener("click", startGame);
 document.getElementById("stop-btn").addEventListener("click", stopGame);
+
+function gameOver() {
+  alert("게임 오버! 점수: " + score);
+  snake.reset();
+  stopGame();
+}
 
 function Snake() {
   this.x = 0;
@@ -112,12 +104,12 @@ function Snake() {
   };
 
   this.eat = function (fruit) {
-  if (this.x === fruit.x && this.y === fruit.y) {
-    this.tail.push({ x: this.x - this.xSpeed, y: this.y - this.ySpeed });
-    return true;
-  }
-  return false;
-};
+    if (this.x === fruit.x && this.y === fruit.y) {
+      this.tail.push({ x: this.x, y: this.y });
+      return true;
+    }
+    return false;
+  };
 
   this.checkCollision = function () {
   for (let i = 0; i < this.tail.length; i++) {
@@ -136,12 +128,6 @@ function Snake() {
     score = 0;
     document.getElementById("score").textContent = score;
   };
-}
-
-function gameOver() {
-  alert("게임 오버! 점수: " + score);
-  snake.reset();
-  stopGame();
 }
 
 function Fruit() {
