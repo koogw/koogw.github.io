@@ -1,85 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>KooPlayground</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        html {
-            scroll-behavior: smooth;
-            font-size: 2vw; /* 기본 폰트 크기를 뷰포트 너비의 2%로 설정 */
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: "Roboto";
-        }
-        body {
-            font-family: "Source Sans Pro";
-            font-size: 1rem; /* 기본 폰트 크기를 1rem으로 설정 */
-        }
-        .overlay-text {
-            position: absolute;
-            top: 2vw;
-            left: 2vw;
-            color: black;
-            font-size: 4vw; /* 이미지 오버레이 텍스트의 폰트 크기를 뷰포트 너비의 4%로 설정 */
-        }
-        .responsive-img {
-            width: 100%;
-            height: auto;
-        }
         .w3-bar-item {
-            text-align: center;
-            font-size: 1.5vw; /* 내비게이션 바 항목의 폰트 크기를 뷰포트 너비의 1.5%로 설정 */
-        }
-        .w3-bar-item a {
-            display: block;
-            width: 100%;
+            font-size: 2vw; /* 메뉴 항목의 폰트 크기를 뷰포트 너비의 2%로 설정 */
         }
         @media (max-width: 600px) {
-            html {
-                font-size: 4vw; /* 화면 너비가 600px 이하일 때 폰트 크기를 4vw로 설정 */
-            }
-            .overlay-text {
-                font-size: 6vw; /* 작은 화면에서 이미지 오버레이 텍스트의 폰트 크기 조정 */
-            }
             .w3-bar-item {
-                font-size: 3vw; /* 작은 화면에서 내비게이션 바 항목의 폰트 크기 조정 */
+                font-size: 4vw; /* 화면 너비가 600px 이하일 때 폰트 크기를 4vw로 설정 */
             }
         }
     </style>
 </head>
-<body class="w3-light-white w3-margin">
+<body>
 
 <!-- Navigation bar with links -->
-<div class="w3-bar w3-white w3-text-black w3-padding">
-    <h2 class="w3-left w3-tag w3-pale-red w3-round">KooPlayground</h2>
-    <a href="index.html#Home" class="w3-bar-item w3-button w3-hide-small w3-right">메인페이지</a>
-    <a href="playground.html" class="w3-bar-item w3-button w3-hide-small w3-right">놀이터</a>
-    <a href="board.html" class="w3-bar-item w3-button w3-hide-small w3-right">게시판</a>
-    <a href="contact.html" class="w3-bar-item w3-button w3-hide-small w3-right">미정</a>
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-medium w3-hide-large" onclick="myFunction()">&#9776;</a>
+<div class="w3-bar w3-white w3-text-black">
+  <h2 class="w3-left w3-tag w3-pale-red w3-round">KooPlayground</h2>
+  <a href="index.html" class="w3-hide-small w3-bar-item w3-button w3-mobile w3-medium w3-right">메인페이지</a>
+  <a href="post.html" class="w3-hide-small w3-bar-item w3-button w3-mobile w3-medium w3-right">게시판</a>
+  <a href="playground.html" class="w3-hide-small w3-bar-item w3-button w3-mobile w3-medium w3-right">놀이터</a>
+  <a href="#Contact" class="w3-hide-small w3-bar-item w3-button w3-mobile w3-medium w3-right">미정</a>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-medium w3-hide-large" onclick="myFunction()">&#9776;</a>
 </div>
 
 <div id="demo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-small">
-    <a href="index.html#Home" class="w3-bar-item w3-button">메인페이지</a>
-    <a href="playground.html" class="w3-bar-item w3-button">놀이터</a>
-    <a href="board.html" class="w3-bar-item w3-button">게시판</a>
-    <a href="contact.html" class="w3-bar-item w3-button">미정</a>
+  <a href="index.html" class="w3-bar-item w3-button">메인페이지</a>
+  <a href="playground.html" class="w3-bar-item w3-button">놀이터</a>
+  <a href="post.html" class="w3-bar-item w3-button">게시판</a>
+  <a href="#Contact" class="w3-bar-item w3-button">미정</a>
 </div>
 
 <script>
-    function myFunction() {
-        var x = document.getElementById("demo");
-        if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-        } else {
-            x.className = x.className.replace(" w3-show", "");
-        }
-    }
+function myFunction() {
+  var x = document.getElementById("demo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
 </script>
 
 </body>
