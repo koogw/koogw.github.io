@@ -6,6 +6,8 @@ const columns = canvas.width / scale;
 let score = 0;
 
 let snake;
+let fruit;
+let gameInterval;
 
 (function setup() {
   snake = new Snake();
@@ -14,8 +16,6 @@ let snake;
   fruit.pickLocation();
 
 }());
-
-let gameInterval;
 
 function startGame() {
   if (!gameInterval) {
@@ -40,9 +40,6 @@ function stopGame() {
   clearInterval(gameInterval);
   gameInterval = null;
 }
-
-document.getElementById("start-btn").addEventListener("click", startGame);
-document.getElementById("stop-btn").addEventListener("click", stopGame);
 
 function gameOver() {
   alert("게임 오버! 점수: " + score);
@@ -78,7 +75,7 @@ function Snake() {
     this.y += this.ySpeed;
 
     if (this.x < 0 || this.y < 0 || this.x >= canvas.width || this.y >= canvas.height) {
-      this.reset();
+      gameOver();
     }
   };
 
@@ -105,19 +102,19 @@ function Snake() {
 
   this.eat = function (fruit) {
     if (this.x === fruit.x && this.y === fruit.y) {
-      this.tail.push({ x: this.x, y: this.y });
+      this.tail.push({ x: this.x - this.xSpeed, y: this.y - this.ySpeed });
       return true;
     }
     return false;
   };
 
   this.checkCollision = function () {
-  for (let i = 0; i < this.tail.length; i++) {
-    if (this.x === this.tail[i].x && this.y === this.tail[i].y) {
-      gameOver();
+    for (let i = 0; i < this.tail.length; i++) {
+      if (this.x === this.tail[i].x && this.y === this.tail[i].y) {
+        gameOver();
+      }
     }
-  }
-};
+  };
 
   this.reset = function () {
     this.x = 0;
@@ -149,3 +146,6 @@ window.addEventListener("keydown", (event) => {
   const direction = event.key.replace("Arrow", "");
   snake.changeDirection(direction);
 });
+
+document.getElementById("start-btn").addEventListener("click", startGame);
+document.getElementById("stop-btn").addEventListener("click", stopGame);
