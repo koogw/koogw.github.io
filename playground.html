@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
     <style>
         html {
             scroll-behavior: smooth;
@@ -79,6 +80,7 @@
         });
  
     </script>
+    
 </body>
 
 <!-- Main content -->
@@ -86,17 +88,20 @@
 
     <!-- Main header -->
     <header class="w3-display-container w3-wide" style="position: relative;">
-        <img src="img/playground.jpg" alt="playground" class="responsive-img">
         <div class="overlay-text">
             <h1 class="w3-text-black"><b>건우의 놀이터</b></h1>
         </div>
     </header>
 
-    <!-- Content section -->
-    <div class="w3-padding-64 w3-center" id="Playground">
-        <h2>놀이터</h2>
-        <p>여기는 건우의 놀이터입니다. 다양한 활동과 재미있는 놀이를 즐길 수 있습니다.</p>
-    </div>
+    <body>
+      <div class="game-container">
+        <h1>스네이크 게임</h1>
+        <canvas id="game-board" width="400" height="400"></canvas>
+        <p class="score">점수: <span id="score">0</span></p>
+      </div>
+      <script src="script.js"></script>
+    </body>
+    
 
 </div>
 
