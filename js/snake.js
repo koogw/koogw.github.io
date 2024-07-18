@@ -112,20 +112,20 @@ function Snake() {
   };
 
   this.eat = function (fruit) {
-    if (this.x === fruit.x && this.y === fruit.y) {
-      this.tail.push({ x: this.x, y: this.y });
-      return true;
-    }
-    return false;
-  };
+  if (this.x === fruit.x && this.y === fruit.y) {
+    this.tail.push({ x: this.x - this.xSpeed, y: this.y - this.ySpeed });
+    return true;
+  }
+  return false;
+};
 
   this.checkCollision = function () {
-    for (let i = 0; i < this.tail.length; i++) {
-      if (this.x === this.tail[i].x && this.y === this.tail[i].y) {
-        this.reset();
-      }
+  for (let i = 0; i < this.tail.length; i++) {
+    if (this.x === this.tail[i].x && this.y === this.tail[i].y) {
+      gameOver();
     }
-  };
+  }
+};
 
   this.reset = function () {
     this.x = 0;
@@ -136,6 +136,12 @@ function Snake() {
     score = 0;
     document.getElementById("score").textContent = score;
   };
+}
+
+function gameOver() {
+  alert("게임 오버! 점수: " + score);
+  snake.reset();
+  stopGame();
 }
 
 function Fruit() {
