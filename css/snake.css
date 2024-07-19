@@ -7,7 +7,6 @@ body {
   font-family: 'Arial', sans-serif;
   background-color: #F7F7F7;
   display: flex;
-  justify-content: center;
   align-items: center;
   min-height: 10vh;
 }
