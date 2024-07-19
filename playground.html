@@ -10,27 +10,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/snake.css">
     <style>
-        html {
-            scroll-behavior: smooth;
-            font-size: 2vw; /* 기본 폰트 크기를 뷰포트 너비의 2%로 설정 */
+        * {
             margin: 0;
             padding: 0;
-        }
-        *, *::before, *::after {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: "Roboto";
         }
         body {
-            font-family: "Source Sans Pro";
-            font-size: 1rem; /* 기본 폰트 크기를 1rem으로 설정 */
-            margin: 0;
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #F7F7F7;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
+            margin: 0;
         }
         .overlay-text {
             position: absolute;
@@ -52,8 +44,44 @@
             width: 100%;
         }
         .game-container {
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
             text-align: center;
             margin-top: 20px;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        canvas {
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #000;
+        }
+        .buttons {
+            margin-top: 1rem;
+        }
+        .buttons button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            border-radius: 0.5rem;
+        }
+        .buttons button:hover {
+            background-color: #45a049;
+        }
+        .score {
+            font-size: 1.2rem;
+            margin-top: 1rem;
         }
         @media (max-width: 600px) {
             html {
